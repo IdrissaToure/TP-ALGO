@@ -1,0 +1,103 @@
+                   PALN DE PROJET
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+              Description du Projet
+
+Creation d'une plat-form "E_learning" ou les Etudiant , praticuliers pouron aller se fromer et ou les enseignant peuvent charge les cours et le programme (document, diagrammz, video , presentation , ets.....). L'enseignant devra etre capable de planifier, organiser, et afficher le programme des semaines à venir pour plus de transparence.
+
+
+UTILISATEUR: enseigant, etudiant, parents , ADMIN
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                            USER CASES ou cas d'utilisation 
+etudiant-------->suivre le cours <----------->login/register
+etudiant-------->voir les programme
+
+enseignant-------->creer un cours <----------->login
+enseignant-------->corrige un errer <----------->login
+
+admin-------->maintenance <----------->login
+admin-------->peut rendre un utilsateur enseignant <----------->login
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                CLASSES 
+                      -niveaux
+                      --matiere
+                      ---chpitres
+                      ----documents, video, animation ,etc....,(materiel d'etude)
+                      -----commentaire et reponses (par tout lamda)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                    APPLICATIONS
+               UTILISATEUR ET PROGRAMMES
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                     BASE DE DONNEES
+                 model de classe:
+                   USER : modèle d'utilisateur personnalisé
+                   PROGRAMME: NIVEUAX , MATIERES , LESSONS ,COMMENTAIRES, REPNSES
+                      NIVEUAX 1 --------------------------> * MATIERES
+                      MATIERES 1 --------------------------> * LESSONS
+                      NIVEUAX 1 ---------------------------> * LESSONS
+                      USER 1 ---------------------------> * LESSONS
+                    
+                       LESSONS 1 ---------------------------> * COMMENTAIRES                     
+                       COMMENTAIRES 1 ----------------------> * REPONSES
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+                      DIFFERANTS MODEL
+ 
+                    model Utilisateur:		
+                    -nom et prenom
+                    -bio
+                    -profile
+                    -type d'utilisateur:
+                    ** chaque type d'utilisateur aura son type d'accessibilite
+                 
+                    model niveaux
+                        nom
+                        slug
+                        descrp
+                        duree
+
+                     model Matieres
+                        id_matieres
+                        nom
+                        slug
+                        niveau*
+                        image
+                        descrp
+                      model lesson
+                         id_lesson
+                         niveau*
+                         user*
+                         matiere*
+                         nom
+                         position
+                         slug
+                         video de la lecon
+                         ficher presentation
+                         ficher cours en pdf
+
+                      model Commentaire
+                          lesson*
+                          nom_com
+                          auteur*
+                          corps
+                          date
+
+                      model Reponse
+                          nom_com*
+                          corps
+                          auteur*
+                          date
+
+
+
+
+
+
+
+
+
+       	   
